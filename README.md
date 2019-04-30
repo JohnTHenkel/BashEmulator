@@ -1,43 +1,12 @@
-# Project 1
-Name: John Henkel
+# BashEmulator
 
-Files:
-	MyShell:
-		Executable version of the shell. To run type: ./MyShell	
+A basic emulator of the bash shell. The emulator supports several 'built-in' commands:
+* ls
+* cd
+* pwd
+* alias
+* unalias
+* history
+* exit
 
-	README.md:
-		Contains description of the various project components
-
-	command.h:
-		Header file containing the command_t struct and the partion_tokens and execute functions as well as InputType and OutputType enums. 
-		This file allows us to easily handle each of the inputted commands and any pipes or file redirection.
-
-	history.txt:
-		File containg all of the commands that have been executed by the shell. Allows us to preserve history between sections.
-
-	main.cpp:
-		Creates the shell and executes the shell loop.
-
-	makefile:
-		Contains info about how the shell is to be compiled. Used with the command 'make';
-
-	shell.h:
-		Contains function declarations for the various .cpp files as well as the maps needed to contain builtins, localvars, and aliases.
-
-	shell_builtins.cpp:
-		Contains function implementations for 'builtin' commands. Executes commands internally.
-
-	shell_cmd_execution.cpp:
-		Contains function implementation for 'external' commands. Executes commands internally and handles file redirection and piping as well as command parsing.
-
-	shell_core.cpp:
-		Contains the main shell loop and handles the execution of all commands, aliasing, variable assignment.
-
-	shell_tab_completion.cpp:
-		Contains the functions for implementing tab completion in the shell.
-
-Unusual / interesting features:
-	Added history preservation between sessions to more closely resemble bash behavior.
-Approximate hours:
-	25 hours
-	
+If the user enters a command that is not present in the list of built-ins, the shell will call execvp to attempt to execute the command. The simulator also supports file redirection as well as command piping.
